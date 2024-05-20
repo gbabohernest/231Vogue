@@ -1,0 +1,26 @@
+/* DEFAULT STYLES FOR TYPOGRAPHY  MOBILE FIRST APPROACH*/
+@use "../utils" as u;
+
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top:0
+}
+
+h1 {
+  font-size: 28px;
+}
+
+p {
+  margin-top: 0;
+  font-size: u.rem(16);
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
