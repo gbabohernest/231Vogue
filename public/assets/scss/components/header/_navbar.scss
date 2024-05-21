@@ -1,0 +1,114 @@
+/* STYLES FOR THE NAVIGATION MOBILE FIRST APPROACH*/
+@use '../../utils' as u;
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  //height: 10vh;
+  //background-color: var(--default-color);
+  //background: linear-gradient(90deg, rgba(0,0,255,1) 0%, rgba(251,251,251,1) 43%, rgba(211,211,252,1) 71%, rgba(253,29,29,1) 92%);
+  //background: linear-gradient(135deg, #ff0000, #ffffff, #0000ff);
+
+  z-index: 100;
+
+  //box-shadow: -1px 9px 18px -4px rgba(105,105,105,1);
+  //-webkit-box-shadow: -1px 9px 18px -4px rgba(105,105,105,1);
+  //-moz-box-shadow: -1px 9px 18px -4px rgba(105,105,105,1);
+
+
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // border: 1px solid red;
+
+  &__menu {
+    width: min(100% - u.rem(10), u.rem(1200));
+    margin-inline: auto;
+    padding: u.rem(7);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: u.rem(10);
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      &-btns {
+        img {
+          width: u.rem(25);
+          object-fit: contain;
+          cursor: pointer;
+        }
+      }
+
+      &-logo {
+        a {
+          font-family: var(--default-font);
+          font-size: u.rem(26);
+          font-weight: 800;
+          letter-spacing: -4px;
+        }
+
+        .red {
+          color: var(--primary-color);
+        }
+
+        .blue {
+          color: var(--secondary-color);
+        }
+
+        .white {
+          color: var(--white-color);
+        }
+
+        cursor: pointer;
+      }
+    }
+
+    &-items {
+
+      img {
+        width: u.rem(25);
+        object-fit: contain;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  /** MOBILE SEARCH FORM FOR THE NAVIGATION**/
+  &__search-bar-mobile {
+    width: min(100% - u.rem(10), u.rem(1200));
+    margin-inline: auto;
+    position: relative;
+
+    form {
+      input {
+        width: 100%;
+        padding: u.rem(10) u.rem(10) u.rem(10) u.rem(40);
+        font-size: u.rem(14);
+        border: 1px solid black;
+        border-radius: u.rem(4);
+        outline: none;
+      }
+    }
+
+    img {
+      width: u.rem(25);
+      object-fit: contain;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+  }
+
+
+  margin-bottom: u.rem(40);
+
+}
+
