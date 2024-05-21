@@ -1,0 +1,86 @@
+/*STYLES FOR THE NAVIGATION Banner MOBILE FIRST APPROACH*/
+
+@use "../../utils" as u;
+
+.banner {
+  //background: linear-gradient(135deg, #ff0000, #ffffff, #0000ff);
+  margin-top: u.rem(112);
+  height: 36vh;
+  overflow: hidden;
+
+
+  &__container {
+    padding: u.rem(7);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: u.rem(5);
+
+
+    &-header {
+      display: flex;
+      align-items: center;
+      padding-inline-start: u.rem(7);
+
+      &--text {
+        font-size: u.rem(13);
+
+        h2 {
+          font-weight: 200;
+          margin-bottom: 0;
+
+          span {
+            //color: var(--white-color);
+          }
+
+          .pop {
+            font-family: var(--default-font);
+            text-transform: uppercase;
+            font-size: u.rem(16);
+            letter-spacing: u.rem(5);
+            margin-inline-start: u.rem(16);
+          }
+
+          .cursive {
+            font-family: var(--cursive-font);
+            font-weight: 900;
+          }
+
+        }
+      }
+    }
+
+
+    &__slide-show-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: u.rem(2); // might change
+
+
+      .model-pic {
+        width: u.rem(130);
+        object-fit: contain;
+        // send image behind to allow control btn to been shown over it.
+      }
+
+      .slide-show-control {
+        align-self: end;
+        padding-inline-end: u.rem(10);
+
+        img {
+          width: u.rem(25);
+          object-fit: contain;
+
+          background-color: green; //temporary
+          border-radius: 100%;
+          cursor: pointer;
+
+          &:first-child {
+            margin-inline-end: u.rem(5);
+          }
+        }
+      }
+    }
+  }
+}
