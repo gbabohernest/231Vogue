@@ -1,0 +1,8 @@
+/*Header Element styles*/
+
+@use "../../utils" as u;
+
+.header__container {
+  width: 100%;
+  display: grid;
+}
