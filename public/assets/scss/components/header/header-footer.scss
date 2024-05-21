@@ -20,9 +20,9 @@
       align-items: center;
       gap: u.rem(13);
 
-       p {
-         font-size: u.rem(13);
-       }
+      p {
+        font-size: u.rem(13);
+      }
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--default-color);
