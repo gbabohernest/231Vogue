@@ -33,9 +33,10 @@
     &-wrapper {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: u.rem(15);
 
       &-btns {
+        padding-top: u.rem(4);
         img {
           width: u.rem(25);
           object-fit: contain;
@@ -48,7 +49,7 @@
           font-family: var(--default-font);
           font-size: u.rem(26);
           font-weight: 800;
-          letter-spacing: -4px;
+          letter-spacing: u.rem(-4);
         }
 
         .red {
