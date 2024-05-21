@@ -1,0 +1,41 @@
+/* HEADER FOOTER STYLES --->> MOBILE FIRST APPROACH */
+
+@use '../../utils' as u;
+
+.header_footer {
+  //background-color: var(--default-color);
+  padding-inline: u.rem(16);
+  margin-top: u.rem(16);
+
+  &__wrapper {
+    width: min(100% - u.rem(10), u.rem(1200));
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(25);
+
+    &--card {
+      display: flex;
+      align-items: center;
+      gap: u.rem(13);
+
+       p {
+         font-size: u.rem(13);
+       }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--default-color);
+        padding-bottom: u.rem(14);
+
+      }
+
+
+      img {
+        width: u.rem(25);
+        object-fit: contain;
+      }
+    }
+
+  }
+}
