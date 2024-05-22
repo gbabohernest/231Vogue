@@ -5,17 +5,14 @@
 .banner {
   //background: linear-gradient(135deg, #ff0000, #ffffff, #0000ff);
   margin-top: u.rem(112);
-  height: 36vh;
+  height: 36vh; //TODO MIGHT TAKE ANOTHER LOOK AT THIS HEIGHT
   overflow: hidden;
 
 
   &__container {
     padding: u.rem(7);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: u.rem(5);
 
+    @include u.grid(2, 1);
 
     &-header {
       display: flex;
@@ -58,7 +55,7 @@
 
 
       .model-pic {
-        width: u.rem(130);
+        width: u.rem(130); //TODO i was playing with it... i found a way to make it look good.. we see about it later.
         object-fit: contain;
         // send image behind to allow control btn to been shown over it.
       }
@@ -68,12 +65,10 @@
         padding-inline-end: u.rem(10);
 
         img {
-          width: u.rem(25);
-          object-fit: contain;
+          @extend %mobile-img-style;
 
           background-color: green; //temporary
           border-radius: 100%;
-          cursor: pointer;
 
           &:first-child {
             margin-inline-end: u.rem(5);
@@ -82,4 +77,6 @@
       }
     }
   }
+
+  @extend %section-divider;
 }

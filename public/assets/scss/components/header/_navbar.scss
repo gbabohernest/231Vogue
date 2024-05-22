@@ -21,8 +21,7 @@
   // border: 1px solid red;
 
   &__menu {
-    width: min(100% - u.rem(10), u.rem(1200));
-    margin-inline: auto;
+    @extend %center-element;
     padding: u.rem(7);
 
     display: flex;
@@ -38,42 +37,16 @@
       &-btns {
         padding-top: u.rem(4);
         img {
-          width: u.rem(25);
-          object-fit: contain;
-          cursor: pointer;
+         @extend %mobile-img-style;
         }
       }
 
-      &-logo {
-        a {
-          font-family: var(--default-font);
-          font-size: u.rem(26);
-          font-weight: 800;
-          letter-spacing: u.rem(-4);
-        }
-
-        .red {
-          color: var(--primary-color);
-        }
-
-        .blue {
-          color: var(--secondary-color);
-        }
-
-        .white {
-          color: var(--white-color);
-        }
-
-        cursor: pointer;
-      }
     }
 
     &-items {
 
       img {
-        width: u.rem(25);
-        object-fit: contain;
-        cursor: pointer;
+       @extend %mobile-img-style;
       }
     }
   }
@@ -81,8 +54,7 @@
 
   /** MOBILE SEARCH FORM FOR THE NAVIGATION**/
   &__search-bar-mobile {
-    width: min(100% - u.rem(10), u.rem(1200));
-    margin-inline: auto;
+    @extend %center-element;
     position: relative;
 
     form {
@@ -97,19 +69,18 @@
     }
 
     img {
-      width: u.rem(25);
-      object-fit: contain;
+     @extend %mobile-img-style;
       position: absolute;
       left: 10px;
       top: 50%;
       transform: translateY(-50%);
-      cursor: pointer;
+
     }
 
   }
 
 
-  margin-bottom: u.rem(40);
+  @extend %section-divider;
 
 }
 
