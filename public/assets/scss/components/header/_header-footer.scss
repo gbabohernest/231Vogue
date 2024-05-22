@@ -8,8 +8,8 @@
   margin-top: u.rem(16);
 
   &__wrapper {
-    width: min(100% - u.rem(10), u.rem(1200));
-    margin-inline: auto;
+    @extend %center-element;
+
 
     display: flex;
     flex-direction: column;
@@ -32,8 +32,7 @@
 
 
       img {
-        width: u.rem(25);
-        object-fit: contain;
+        @extend %mobile-img-style;
       }
     }
 
