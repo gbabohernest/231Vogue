@@ -1,0 +1,71 @@
+@use "../../utils" as u;
+
+main {
+  //margin-top: u.rem(16);
+  overflow: hidden;
+
+  .heading {
+    font-family: var(--content-heading);
+    font-weight: 600;
+    font-size: u.rem(15);
+    color: rgba(79, 79, 79);
+    text-transform: uppercase;
+    letter-spacing: u.rem(3);
+    text-align: center;
+  }
+
+  //  featured section styles
+  .featured-section {
+    @extend %center-element;
+    @extend %section-divider;
+  }
+
+
+  // new arrivals section styles
+  .new-arrivals-section {
+    @extend %center-element;
+    @extend %section-divider;
+
+    //p {
+    //  color: red;
+    //  font-size: u.rem(13)
+    //}
+  }
+
+  .products-listing {
+    @extend %center-element;
+    @extend %section-divider;
+  }
+
+  // General products layout styles
+  .products-wrapper {
+    @include u.grid(2, 1);
+
+    margin-top: u.rem(16);
+
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+
+      .product_image {
+        img {
+          width: u.rem(130);
+          height: 200px;
+          object-fit: contain;
+        }
+      }
+
+      .product_info {
+        text-align: center;
+
+        span {
+          font-size: u.rem(13);
+        }
+      }
+
+    }
+  }
+}
