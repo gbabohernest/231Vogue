@@ -1,0 +1,196 @@
+@use "../../utils" as u;
+
+.footer {
+  h4 {
+    font-weight: 500;
+    font-size: u.rem(14);
+    text-transform: uppercase;
+    margin-bottom: u.rem(3);
+  }
+
+  p, a {
+    font-size: u.rem(11);
+  }
+
+
+  .links {
+    display: inline-flex;
+    gap: u.rem(16);
+
+    a {
+      i {
+        font-size: u.rem(20);
+      }
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+
+  }
+
+
+  &__newsletter {
+    background-color: var(--default-color);
+
+    &--wrapper {
+      @extend %center-element;
+      display: flex;
+      justify-content: space-between;
+      padding: u.rem(25) u.rem(0);
+
+
+      //height: 25vh;
+      color: var(--white-color);
+
+
+      .download {
+        display: flex;
+        flex-direction: column;
+
+        &__card-wrapper {
+          display: flex;
+          margin-top: u.rem(16);
+          gap: u.rem(10);
+
+
+          .download-card {
+            display: flex;
+            align-items: center;
+            padding: u.rem(5);
+            border: 1px solid white;
+            border-radius: u.rem(10);
+            cursor: pointer;
+
+            i {
+              font-size: u.rem(30);
+            }
+
+            .text {
+              span {
+                font-weight: 500;
+              }
+
+              margin-inline-start: u.rem(7);
+            }
+
+            &:hover {
+              border-color: var(--primary-color);
+
+              i,
+              span,
+              p,
+              {
+                color: var(--primary-color);
+
+              }
+
+            }
+          }
+        }
+      }
+
+
+      .newsletter-content {
+        display: flex;
+        flex-direction: column;
+
+        form {
+          margin-top: u.rem(16);
+          position: relative;
+
+          input {
+            width: 60%;
+            @extend %input-form;
+          }
+
+          button {
+            padding: u.rem(13.2);
+            border: none;
+            border-radius: u.rem(5);
+            cursor: pointer;
+            margin-inline-start: u.rem(7);
+            background-color: var(--primary-color);
+            color: var(--white-color);
+
+          }
+
+          .img-icon {
+            color: var(--default-color);
+            @extend %form-icon-position;
+
+            //&:hover {
+            //  color: var(--primary-color);
+            //}
+          }
+
+          margin-bottom: u.rem(16);
+        }
+
+        .newsletter-consent {
+          span, a {
+            font-size: u.rem(11);
+          }
+
+          a {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+
+  }
+
+  //newsletter section of the footer styles end
+
+
+  // the main footer section
+
+  &__section {
+    background-color: var(--primary-color);
+
+
+    &-wrapper {
+      //mobile first approach
+      @extend %center-element;
+      display: flex;
+      flex-direction: column; //change to row on big screen
+      justify-content: center; // change to space-evenly on big screen
+      padding: u.rem(25) u.rem(0);
+
+      &--contents {
+        color: var(--white-color);
+        text-align: center; // align left on big screen
+
+
+        .help, .useful-link, .contents, .socials, .payment-methods {
+          margin-bottom: u.rem(10); //change to 20 on big screen
+          h4 {
+            margin-bottom: u.rem(13);
+          }
+
+          /*  a{
+              &:hover {
+                border-bottom: 3px solid var(--secondary-color);
+                padding-bottom: u.rem(3);
+              }
+            }*/
+        }
+
+        a {
+          display: block;
+          color: var(--white-color);
+        }
+      }
+    }
+
+
+    // copyright
+    .footer-copyright {
+      text-align: center;
+      color: var(--white-color);
+    }
+  }
+
+
+}
