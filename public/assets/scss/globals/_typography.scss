@@ -2,10 +2,10 @@
 @use "../utils" as u;
 
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.1;
-  margin-top:0;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -21,8 +21,34 @@ p {
 
 a, a:visited, a:active {
   text-decoration: none;
+  color: #000000;
 }
 
 ul li {
   list-style: none;
+}
+
+div {
+  .logo {
+    a {
+      font-family: var(--default-font);
+      font-size: u.rem(26);
+      font-weight: 800;
+      letter-spacing: u.rem(-4);
+    }
+
+    .red {
+      color: var(--primary-color);
+    }
+
+    .blue {
+      color: var(--secondary-color);
+    }
+
+    .white {
+      color: var(--white-color);
+    }
+
+    cursor: pointer;
+  }
 }
