@@ -1,0 +1,8 @@
+@use "functions" as f;
+
+@mixin grid($columns, $rows) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-template-rows: $rows + fr;
+  gap: f.rem(5);
+}

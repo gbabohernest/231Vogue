@@ -1,0 +1,34 @@
+// REUSABLE STYLES FOR 231VOGUE
+
+@use 'functions' as f;
+
+%center-element {
+  width: min(100% - f.rem(10), f.rem(1200));
+  margin-inline: auto;
+}
+
+%mobile-img-style {
+  width: f.rem(25);
+  object-fit: contain;
+  cursor: pointer;
+}
+
+%section-divider {
+  margin-bottom: f.rem(40);
+}
+
+%input-form {
+
+  padding: f.rem(13.2) f.rem(13.2) f.rem(13.2) f.rem(40);
+  font-size: f.rem(14);
+  border: 1px solid black;
+  border-radius: f.rem(4);
+  outline: none;
+}
+
+%form-icon-position {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
