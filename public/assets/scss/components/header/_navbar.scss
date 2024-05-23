@@ -36,8 +36,9 @@
 
       &-btns {
         padding-top: u.rem(4);
+
         img {
-         @extend %mobile-img-style;
+          @extend %mobile-img-style;
         }
       }
 
@@ -46,7 +47,7 @@
     &-items {
 
       img {
-       @extend %mobile-img-style;
+        @extend %mobile-img-style;
       }
     }
   }
@@ -60,21 +61,13 @@
     form {
       input {
         width: 100%;
-        padding: u.rem(10) u.rem(10) u.rem(10) u.rem(40);
-        font-size: u.rem(14);
-        border: 1px solid black;
-        border-radius: u.rem(4);
-        outline: none;
+        @extend %input-form;
       }
     }
 
     img {
-     @extend %mobile-img-style;
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-
+      @extend %mobile-img-style;
+      @extend %form-icon-position;
     }
 
   }
