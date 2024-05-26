@@ -2,8 +2,8 @@
 @use '../../utils' as u;
 
 .nav {
-  position: fixed;
-  top: 0;
+  //position: fixed;
+  //top: 0;
   width: 100%;
   //height: 10vh;
   //background-color: var(--default-color);
@@ -72,12 +72,18 @@
       a {
         &:not(:last-child) {
           margin-right: u.rem(16);
-          @include u.breakpoint-up(medium) {
+          @include u.breakpoint-up(large) {
             margin-right: u.rem(32);
+            margin-left: 0;
+          }
+
+          @include u.breakpoint-up(medium) {
+            margin-left: u.rem(16)
           }
         }
 
         i {
+          color: var(--white-color);
           @include u.breakpoint-up(medium) {
             font-size: u.rem(25);
           }
@@ -128,8 +134,12 @@
 .large {
   display: none;
 
+  flex-grow: 0;
   @include u.breakpoint-up(medium) {
     display: block;
+  }
+
+  @include u.breakpoint-up(large) {
     flex-grow: 3;
   }
 
