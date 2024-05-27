@@ -1,0 +1,86 @@
+@use '../../utils' as u;
+
+.nav {
+  .side-bar-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    @extend %dropdown-card-styles;
+    border-radius: 0;
+    overflow-x: hidden;
+    transition: 0.5s ease-in-out;
+    padding-top: u.rem(80);
+    z-index: 1;
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow-y: auto;
+      padding: u.rem(10);
+
+
+      .sidebar-close-btn {
+        position: absolute;
+        top: 10px;
+        left: 25px;
+        margin-right: u.rem(50);
+        cursor: pointer;
+        font-size: u.rem(40);
+      }
+
+      .group {
+        a {
+          padding: u.rem(10) u.rem(15);
+          display: block;
+          color: var(--default-color);
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            background-color: #575757;
+          }
+        }
+
+        i {
+          font-size: u.rem(25);
+          margin-right: u.rem(10);
+
+        }
+
+        &:not(:last-child) {
+          margin-bottom: u.rem(30);
+        }
+      }
+
+      .account {
+        a {
+          text-transform: uppercase;
+
+          span {
+            margin-inline-start: u.rem(10);
+          }
+        }
+      }
+
+      .categories {
+        img {
+          @extend %mobile-img-style;
+          margin-right: u.rem(10);
+        }
+      }
+
+      .useful_links {
+        span {
+          color: var(--default-color);
+          margin-inline-start: u.rem(10);
+        }
+      }
+
+    }
+
+  }
+}
