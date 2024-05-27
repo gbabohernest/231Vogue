@@ -28,13 +28,28 @@ ul li {
   list-style: none;
 }
 
+
 div {
   .logo {
+
     a {
-      font-family: var(--default-font);
-      font-size: u.rem(26);
+      font-family: var(--logo);
+      font-size: clamp(u.rem(30), u.rem(16) + 3vw, u.rem(50));
+
+
       font-weight: 800;
-      letter-spacing: u.rem(-4);
+      letter-spacing: u.rem(-5);
+
+
+      @include u.breakpoint-up(medium) {
+        letter-spacing: u.rem(-7);
+      }
+
+      @include u.breakpoint-up(x-large) {
+        letter-spacing: u.rem(-9);
+      }
+
+
     }
 
     .red {
