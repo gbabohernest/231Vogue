@@ -1,0 +1,55 @@
+@use '../../utils' as u;
+
+.nav__menu {
+
+  &--cta-btns {
+
+    .account-cta {
+
+      &--dropdown {
+        position: relative;
+      }
+
+      &-wrapper {
+        display: none;
+        position: absolute;
+        top: 95px;
+
+        padding: u.rem(20);
+        @extend %dropdown-card-styles;
+
+
+        .sign-btn {
+          display: block;
+          text-align: center;
+          padding: u.rem(5);
+          margin-bottom: 20px;
+          @extend %cta-btn;
+
+          &:hover {
+            opacity: .9;
+          }
+
+        }
+
+        .account-info-wrapper {
+          a {
+            display: block;
+            padding: u.rem(5);
+
+            &:hover {
+              background-color: var(--grey);
+
+            }
+          }
+        }
+      }
+
+    }
+
+    .show-cta-dropdown {
+      display: block;
+    }
+  }
+
+}
