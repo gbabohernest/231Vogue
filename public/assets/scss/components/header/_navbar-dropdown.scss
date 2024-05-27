@@ -2,8 +2,6 @@
 
 .nav__menu--nav {
 
-  //position: relative;
-
 
   .nav__list-categories {
 
@@ -25,15 +23,8 @@
 
           }
 
-          span {
-            transform: rotateX(190deg);
-          }
         }
 
-        .chevron {
-          display: inline-block;
-          transition: transform 0.5s ease-in-out;
-        }
       }
 
       //  DROPDOWN MENU
@@ -44,7 +35,6 @@
 
         top: calc(100% + 20px);
         left: 0;
-        background-color: var(--white-color);
         z-index: 1;
         width: u.rem(560);
 
@@ -53,12 +43,7 @@
           width: u.rem(675);
         }
 
-        border-radius: u.rem(16);
-        border: none;
-        color: #000000;
-        -webkit-box-shadow: -2px 4px 11px -1px rgba(0, 0, 0, 0.88);
-        -moz-box-shadow: -2px 4px 11px -1px rgba(0, 0, 0, 0.88);
-        box-shadow: -2px 4px 11px -1px rgba(0, 0, 0, 0.88);
+        @extend %dropdown-card-styles;
 
 
         padding: u.rem(20);
@@ -89,12 +74,8 @@
       .show {
         @include u.flex(space-between, flex-start);
 
-
       }
 
-      .rotate {
-        transform: rotateX(190deg);
-      }
     }
 
   }
