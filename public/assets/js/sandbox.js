@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showCategoriesDropdownMenu();
     accountCTADropdownMenu();
+    toggleSideBarNavigation();
 });
 
 
@@ -101,4 +102,31 @@ const accountCTADropdownMenu = () => {
 }
 
 
+const toggleSideBarNavigation = () => {
+
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeSideNav = document.getElementById('closeSideBar');
+    const sidebarNav = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+
+    toggleBtn.addEventListener('click', () => {
+
+        sidebarNav.style.width = "90%";
+        overlay.classList.add('show-overlay');
+    });
+
+
+    closeSideNav.addEventListener('click', () => {
+        sidebarNav.style.width = "0";
+        overlay.classList.remove('show-overlay');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!sidebarNav.contains(e.target) && e.target !== toggleBtn) {
+            sidebarNav.style.width = "0";
+            overlay.classList.remove('show-overlay');
+        }
+    })
+}
 
