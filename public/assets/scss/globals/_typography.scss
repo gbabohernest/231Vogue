@@ -46,7 +46,7 @@ div {
       }
 
       @include u.breakpoint-up(x-large) {
-        letter-spacing: u.rem(-9);
+        letter-spacing: u.rem(-8.5);
       }
 
 
