@@ -1,0 +1,143 @@
+@use "../utils" as u;
+
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+
+  &__navbar {
+    width: 100%;
+    background: linear-gradient(135deg, #4d86be, #719ac4, #ffffff, #0000ff, #ff0000);
+    @include u.flex(space-between, center);
+    box-shadow: -1px 9px 18px -4px rgba(105, 105, 105, 1);
+    -webkit-box-shadow: -1px 9px 18px -4px rgba(105, 105, 105, 1);
+    -moz-box-shadow: -1px 9px 18px -4px rgba(105, 105, 105, 1);
+    padding: u.rem(10) u.rem(15);
+
+
+    &--logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: u.rem(7);
+
+      &_toggle-btn {
+        @include u.breakpoint-up(x-large) {
+          display: none;
+        }
+
+        i {
+          font-size: 20px;
+        }
+      }
+
+      .logo {
+        h1 {
+          a {
+            @include u.breakpoint-down(medium) {
+              font-size: u.rem(26) !important;
+              letter-spacing: u.rem(-5) !important;
+            }
+
+          }
+
+        }
+
+      }
+    }
+
+
+    &--user-info {
+      display: flex;
+      align-items: center;
+      gap: u.rem(10);
+      color: var(--white-color);
+
+      i {
+        @extend %icon-size;
+
+        @include u.breakpoint-down(medium) {
+          font-size: u.rem(20);
+        }
+      }
+
+      @include u.breakpoint-up(x-large) {
+        font-size: u.rem(20);
+      }
+    }
+
+  }
+
+
+  &__container {
+    display: flex;
+    //height: calc(100% - 75px);
+    height: 100%;
+
+
+    &--sidebar {
+      width: u.rem(250);
+      @extend %dropdown-card-styles;
+      border-radius: 0;
+
+
+      &-nav {
+        @include u.flex(space-between, flex-start);
+        flex-direction: column;
+        height: 100%;
+        padding: u.rem(10);
+
+        @include u.breakpoint-up(x-large) {
+          padding: u.rem(16);
+        }
+
+        color: #4d86be;
+
+        .admin-nav-wrapper {
+          margin-top: u.rem(15);
+
+          .admin-nav-items {
+            display: flex;
+            align-items: center;
+            gap: u.rem(7);
+
+            a {
+              color: #4d86be;
+              font-size: u.rem(15);
+            }
+
+            &:not(:last-child) {
+              margin-bottom: u.rem(10);
+            }
+
+            padding: u.rem(7);
+            border-radius: u.rem(4);
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #d0e1f9;
+            }
+          }
+        }
+
+        i {
+          font-size: u.rem(25);
+          margin-right: u.rem(5);
+        }
+
+        .admin-logout {
+          cursor: pointer;
+        }
+
+
+      }
+    }
+
+    &--main-content {
+      flex-grow: 1;
+      padding: u.rem(20);
+    }
+
+  }
+}
