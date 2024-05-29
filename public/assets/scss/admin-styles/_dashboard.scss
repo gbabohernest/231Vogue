@@ -16,6 +16,9 @@
     -moz-box-shadow: -1px 9px 18px -4px rgba(105, 105, 105, 1);
     padding: u.rem(10) u.rem(15);
 
+    @include u.breakpoint-up(x-large) {
+      padding-inline: u.rem(32);
+    }
 
     &--logo-wrapper {
       display: flex;
@@ -80,7 +83,9 @@
       width: u.rem(250);
       @extend %dropdown-card-styles;
       border-radius: 0;
+      background-color: #f4f4f4;
 
+      transition: 0.5s ease-in-out;
 
       &-nav {
         @include u.flex(space-between, flex-start);
@@ -89,7 +94,7 @@
         padding: u.rem(10);
 
         @include u.breakpoint-up(x-large) {
-          padding: u.rem(16);
+          padding: u.rem(32);
         }
 
         color: #4d86be;
@@ -137,6 +142,8 @@
     &--main-content {
       flex-grow: 1;
       padding: u.rem(20);
+
+      transition: 0.5s ease-in-out;
     }
 
   }
