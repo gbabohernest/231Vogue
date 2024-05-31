@@ -1,0 +1,140 @@
+@use "../utils" as u;
+
+.admin {
+  &__container {
+    &--main-content {
+
+      .product-section {
+        border: 1px solid #eee;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
+        padding: u.rem(10);
+
+
+        .section-header {
+          @include u.flex(space-between, center);
+
+          h2 {
+            margin-bottom: 0;
+          }
+
+          .section-actions {
+            button {
+              margin-left: u.rem(10);
+            }
+
+            .add-product-btn {
+              //background-color:#4d86be;
+              background-color: darkblue;
+              color: #eee;
+              padding: u.rem(7);
+
+              transition: background-color;
+
+              &:hover {
+                background-color: var(--primary-color);
+                transition: 0.4s ease-in-out;
+              }
+            }
+          }
+        }
+
+
+        .product-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: u.rem(10);
+
+          th, td {
+            border: 1px solid #ddd;
+            //padding: u.rem(10);
+            padding: u.rem(8);
+            text-align: left;
+          }
+
+          td {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            font-size: u.rem(13);
+
+          }
+
+          th {
+            background-color: #f2f2f2;
+            color: gray;
+            font-size: u.rem(14);
+          }
+
+          .product-name-wrapper {
+            display: flex;
+            align-items: center;
+            gap: u.rem(10);
+
+            .product-image {
+              @extend %mobile-img-style;
+            }
+          }
+
+          //.center-th, .center-td {
+          //  text-align: center;
+          //}
+        }
+
+        //  buttons
+        button {
+          border: none;
+          background-color: #e0e0e0;
+          padding: u.rem(3) u.rem(5);
+          border-radius: u.rem(5);
+          font-size: u.rem(13);
+          color: gray;
+          font-weight: 300;
+          cursor: pointer;
+
+          i {
+            margin-inline-end: u.rem(4);
+          }
+        }
+
+        .edit-btn {
+          margin-right: u.rem(16);
+        }
+
+
+        // pagination btn
+        .pagination {
+          margin-top: u.rem(16);
+
+          @include u.flex(space-between, center);
+
+          button {
+            background-color: #eee;
+            border: 1px solid gray;
+            padding-inline: u.rem(8);
+            transition: background-color;
+
+            &:hover {
+              background-color: darkblue;
+              transition: 0.5s ease-in-out;
+              color: #eee;
+            }
+          }
+
+          .next {
+            margin-left: u.rem(7);
+          }
+
+          .prev {
+            margin-right: u.rem(7);
+          }
+        }
+
+      }
+
+
+    }
+
+
+  }
+
+
+}
