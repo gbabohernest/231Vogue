@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    toggleAdminSideBarNav()
+})
 
+
+const toggleAdminSideBarNav = () => {
     const openSideBarBtn = document.querySelector('.admin-toggle-open');
     const closeSideBarBtn = document.querySelector('.admin-toggle-close');
     const sideBar = document.querySelector('.admin__container--sidebar');
     const adminMainContent = document.querySelector('.admin__container--main-content');
 
-
     openSideBarBtn.addEventListener('click', () => {
-
 
         if (closeSideBarBtn.classList.contains('hide-admin-element')) {
             closeSideBarBtn.classList.remove('hide-admin-element');
@@ -36,6 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         closeSideBarBtn.classList.toggle('hide-admin-element');
-    })
-})
-
+    });
+};
