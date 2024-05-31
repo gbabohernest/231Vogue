@@ -1,0 +1,82 @@
+@use '../utils' as u;
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: u.rem(60);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  @extend %flex;
+
+
+  &-content {
+    background-color: #fefefe;
+    padding: u.rem(32);
+    border: 1px solid #888;
+    width: 80%;
+    margin: 5% auto;
+    max-width: 600px;
+    position: absolute;
+    top: 35px;
+    left: 53%;
+    transform: translateX(-50%);
+
+    .close-modal-btn {
+      position: absolute;
+      top: 10px;
+      right: 30px;
+      color: #aaa;
+      font-size: u.rem(24);
+      font-weight: bold;
+
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    .form-group {
+      margin-bottom: u.rem(16);
+
+      label {
+        display: block;
+        margin-bottom: u.rem(8);
+        font-size: u.rem(14);
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: u.rem(8);
+        border: 1px solid #ccc;
+        border-radius: u.rem(4);
+        font-size: u.rem(12);
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    button[type='submit'] {
+      background-color: darkblue;
+      color: var(--white-color);
+      padding: u.rem(8) u.rem(16);
+      width: 100%;
+      border: none;
+      border-radius: u.rem(4);
+      cursor: pointer;
+      transition: background-color;
+
+      &:hover {
+        background-color: var(--secondary-color);
+        transition: 0.4s ease-in-out;
+      }
+    }
+  }
+}
