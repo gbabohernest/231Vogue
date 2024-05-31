@@ -85,7 +85,7 @@
       border-radius: 0;
       background-color: #f4f4f4;
 
-      transition: 0.5s ease-in-out;
+      //transition: 0.5s ease-in-out;
 
       &-nav {
         @include u.flex(space-between, flex-start);
@@ -142,8 +142,29 @@
     &--main-content {
       flex-grow: 1;
       padding: u.rem(20);
+      background-color: #eee;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.50);
 
-      transition: 0.5s ease-in-out;
+
+      h1, h2 {
+        color: #333;
+        margin-bottom: u.rem(20);
+      }
+
+
+      h1 {
+        @include u.breakpoint-down(medium){
+          font-size: u.rem(22);
+        }
+      }
+
+      h2 {
+        @include u.breakpoint-up(medium) {
+          font-size: u.rem(24);
+        }
+
+      }
+      //transition: all 0.5s ease-in-out;
     }
 
   }
