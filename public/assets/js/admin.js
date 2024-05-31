@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    toggleAdminSideBarNav()
+    toggleAdminSideBarNav();
+    showAddProductModalForm();
 })
 
 
@@ -39,4 +40,30 @@ const toggleAdminSideBarNav = () => {
 
         closeSideBarBtn.classList.toggle('hide-admin-element');
     });
+};
+
+
+/*
+* show the form for creating and adding new product
+*/
+
+const showAddProductModalForm = () => {
+    const modal = document.getElementById('modal');
+    const addProductBtn = document.querySelector('.add-product-btn');
+    const closeBtn = document.querySelector('.close-modal-btn');
+
+
+    addProductBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    })
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
 };
