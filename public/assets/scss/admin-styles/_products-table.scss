@@ -5,7 +5,7 @@
     &--main-content {
 
       .product-section {
-        border: 1px solid #eee;
+        border: 1px solid var(--white-smoke);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
         padding: u.rem(10);
 
@@ -23,9 +23,8 @@
             }
 
             .add-product-btn {
-              //background-color:#4d86be;
-              background-color: darkblue;
-              color: #eee;
+              background-color: var(--light-blue-color);
+              color: var(--white-smoke);
               padding: u.rem(7);
 
               transition: background-color;
@@ -45,23 +44,20 @@
           margin-top: u.rem(10);
 
           th, td {
-            border: 1px solid #ddd;
-            //padding: u.rem(10);
+            border: 1px solid var(--table-border-color);
             padding: u.rem(8);
             text-align: left;
           }
 
           td {
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            font-size: u.rem(13);
-
+            font-size: u.rem(12);
+            color: var(--dark-gray-color);
           }
 
           th {
-            background-color: #f2f2f2;
-            color: gray;
-            font-size: u.rem(14);
+            background-color: var(--bg-table-head);
+            color: var(--gray-color);
+            font-size: u.rem(13);
           }
 
           .product-name-wrapper {
@@ -74,9 +70,6 @@
             }
           }
 
-          //.center-th, .center-td {
-          //  text-align: center;
-          //}
         }
 
         //  buttons
@@ -86,7 +79,7 @@
           padding: u.rem(3) u.rem(5);
           border-radius: u.rem(5);
           font-size: u.rem(13);
-          color: gray;
+          color: var(--dark-gray-color);
           font-weight: 300;
           cursor: pointer;
 
@@ -107,15 +100,16 @@
           @include u.flex(space-between, center);
 
           button {
-            background-color: #eee;
-            border: 1px solid gray;
+            background-color: var(--white-smoke);
+            border: 1px solid var(--gray-color);
             padding-inline: u.rem(8);
             transition: background-color;
+            color: var(--secondary-color);
 
             &:hover {
-              background-color: darkblue;
+              background-color: var(--secondary-color);
               transition: 0.5s ease-in-out;
-              color: #eee;
+              color: var(--white-smoke);
             }
           }
 

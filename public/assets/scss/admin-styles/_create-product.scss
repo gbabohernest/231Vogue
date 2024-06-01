@@ -15,9 +15,9 @@
 
 
   &-content {
-    background-color: #fefefe;
+    background-color: var(--white-smoke);
     padding: u.rem(32);
-    border: 1px solid #888;
+    border: 1px solid var(--gray-color);
     width: 80%;
     margin: 5% auto;
     max-width: 600px;
@@ -30,7 +30,7 @@
       position: absolute;
       top: 10px;
       right: 30px;
-      color: #aaa;
+      color: var(--gray-color);
       font-size: u.rem(24);
       font-weight: bold;
 
@@ -47,13 +47,13 @@
       label {
         display: block;
         margin-bottom: u.rem(8);
-        font-size: u.rem(14);
+        font-size: u.rem(12);
       }
 
       input, select, textarea {
         width: 100%;
         padding: u.rem(8);
-        border: 1px solid #ccc;
+        border: 1px solid var(--table-border-color);
         border-radius: u.rem(4);
         font-size: u.rem(12);
 
@@ -64,14 +64,15 @@
     }
 
     button[type='submit'] {
-      background-color: darkblue;
-      color: var(--white-color);
+      background-color: var(--light-blue-color);
+      color: var(--white-smoke);
       padding: u.rem(8) u.rem(16);
       width: 100%;
       border: none;
       border-radius: u.rem(4);
       cursor: pointer;
       transition: background-color;
+      font-size: u.rem(13);
 
       &:hover {
         background-color: var(--secondary-color);
