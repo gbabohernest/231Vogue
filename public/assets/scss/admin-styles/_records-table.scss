@@ -4,7 +4,7 @@
   &__container {
     &--main-content {
 
-      .product-section {
+      .record-section {
         border: 1px solid var(--white-smoke);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
         padding: u.rem(10);
@@ -22,7 +22,7 @@
               margin-left: u.rem(10);
             }
 
-            .add-product-btn {
+            .add-record-btn {
               background-color: var(--light-blue-color);
               color: var(--white-smoke);
               padding: u.rem(7);
@@ -38,7 +38,7 @@
         }
 
 
-        .product-table {
+        .record-table {
           width: 100%;
           border-collapse: collapse;
           margin-top: u.rem(10);
@@ -58,14 +58,15 @@
             background-color: var(--bg-table-head);
             color: var(--gray-color);
             font-size: u.rem(13);
+
           }
 
-          .product-name-wrapper {
+          .record-name-wrapper {
             display: flex;
             align-items: center;
             gap: u.rem(10);
 
-            .product-image {
+            .record-image {
               @extend %mobile-img-style;
             }
           }
@@ -90,8 +91,17 @@
 
         .edit-btn {
           margin-right: u.rem(16);
+          color: var(--secondary-color);
         }
 
+        .edit-btn,
+        .delete-btn {
+          padding-inline: u.rem(16);
+        }
+
+        .delete-btn {
+          color: var(--primary-color);
+        }
 
         // pagination btn
         .pagination {
