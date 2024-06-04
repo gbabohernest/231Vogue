@@ -3,14 +3,15 @@
 @use '../../utils' as u;
 
 .header_footer {
-  //background-color: var(--default-color);
   padding-inline: u.rem(16);
   margin-top: u.rem(16);
 
   &__wrapper {
     @extend %center-element;
 
-
+    @include u.breakpoint-up(large) {
+      flex-direction: row;
+    }
     display: flex;
     flex-direction: column;
     gap: u.rem(25);
@@ -20,19 +21,42 @@
       align-items: center;
       gap: u.rem(13);
 
+      i {
+        font-size: u.rem(32);
+        color: var(--gray-color);
+      }
+
       p {
-        font-size: u.rem(13);
+        font-size: u.rem(17);
+        @include u.breakpoint-up(medium) {
+          font-size: u.rem(22);
+          color: var(--dark-gray-color);
+          margin-inline-start: u.rem(10);
+        }
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid var(--default-color);
+        border-bottom: 1px solid var(--table-border-color);
         padding-bottom: u.rem(14);
 
       }
 
+      @include u.breakpoint-up(medium) {
+        &:not(:last-child) {
+          border-right: 1px solid var(--table-border-color);
+          padding-bottom: u.rem(14);
+          border-bottom: none;
 
-      img {
-        @extend %mobile-img-style;
+        }
+
+        padding: u.rem(20);
+        background-color: var(--white-smoke);
+
+        i {
+          font-size: u.rem(35);
+
+        }
+
       }
     }
 
