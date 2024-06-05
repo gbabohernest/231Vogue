@@ -11,14 +11,18 @@
             </div>
 
             <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category">Sub-category</label>
                 <select name="category" id="category">
                     <!-- dynamically load category from db -->
-                    <option value="clothes">Clothes</option>
-                    <option value="accessories">Accessories</option>
+                    <option value="dresses">Dresses</option>
+                    <option value="heals">Heels</option>
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" placeholder="price">
+            </div>
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" placeholder="What product is it?"></textarea>
