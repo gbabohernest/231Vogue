@@ -6,7 +6,6 @@
   top: 0;
   width: 100%;
   background: linear-gradient(90deg, rgba(0, 0, 255, 1) 0%, rgba(251, 251, 251, 1) 43%, rgba(211, 211, 252, 1) 71%, rgba(253, 29, 29, 1) 92%);
-
   z-index: 100;
 
   box-shadow: -1px 9px 18px -4px rgba(105, 105, 105, 1);
@@ -21,7 +20,7 @@
 
   &__menu {
     @extend %center-element;
-    padding: u.rem(16) u.rem(7);
+    padding: u.rem(11) u.rem(7);
 
 
     @include u.flex(space-between, center);
@@ -79,7 +78,7 @@
         }
 
         i, span {
-          padding-inline-end: u.rem(10);
+          padding-inline-end: u.rem(5);
         }
 
         .d-none-small {
@@ -89,6 +88,25 @@
             display: inline-block;
           }
         }
+
+        /*mobile cta btn, if logged in show user-forms dashboard
+          if not redirect to the login/signup
+         */
+
+        .mobile-cta-redirects {
+          @include u.breakpoint-up(x-large) {
+            display: none;
+          }
+        }
+
+        /*large screen cta btn for dropdown and redirects*/
+        &--dropdown {
+          display: none;
+          @include u.breakpoint-up(x-large) {
+            display: inline-block;
+          }
+        }
+
       }
 
       i {

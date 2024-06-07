@@ -13,21 +13,22 @@
       &-wrapper {
         display: none;
         position: absolute;
-        top: 95px;
+        top: 75px;
+        transform: translateX(-10%);
 
         padding: u.rem(20);
         @extend %dropdown-card-styles;
 
 
-        .sign-btn {
-          display: block;
-          text-align: center;
+        .logout-btn {
           padding: u.rem(5);
-          margin-bottom: 20px;
+          margin-bottom: u.rem(3);
           @extend %cta-btn;
-
+          width: 100%;
+          border: none;
+          transition: background-color;
           &:hover {
-            opacity: .9;
+            transition: 0.4s ease-in-out;
           }
 
         }
@@ -36,9 +37,12 @@
           a {
             display: block;
             padding: u.rem(5);
+            margin-bottom: u.rem(10);
+            transition: background-color;
 
             &:hover {
-              background-color: var(--grey);
+              background-color: var(--gray-color);
+              transition: 0.4s ease-in-out;
 
             }
           }
