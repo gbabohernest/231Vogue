@@ -1,0 +1,60 @@
+@use "../utils" as u;
+
+
+.products-wrapper {
+  @extend %section-divider;
+
+  .product-grid {
+
+    @extend %center-element;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: u.rem(20);
+    justify-content: center;
+
+    @include u.breakpoint-up(medium) {
+      grid-template-columns: repeat(4, 1fr);
+
+    }
+
+    .product-card {
+      background-color: var(--ghost-white);
+      border-radius: u.rem(5);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+
+      //@extend %section-divider;
+      margin-bottom: u.rem(20);
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; //contain
+      }
+
+      .product_info {
+        padding: 15px;
+
+        .p_price{
+          font-weight: 600;
+          font-size: u.rem(14);
+        }
+        .p_name {
+          font-size: u.rem(15);
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: scale(1.01);
+      }
+
+
+    }
+
+  }
+
+}
