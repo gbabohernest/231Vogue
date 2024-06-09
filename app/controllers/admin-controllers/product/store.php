@@ -1,7 +1,9 @@
 <?php
 
+adminFunctions('validateProductData.php');
+adminFunctions('handleFileUpload.php');
+
 use Core\Database;
-use Core\Validator;
 
 
 $config = require base_path('config.php');
@@ -11,64 +13,6 @@ $db = new Database($config['database'], [
 
 $errors = [];
 $selected_category = '';
-
-/**
- * Validate product data.
- * @param array $errors
- * @return array
- */
-function validateProductData(array $errors): array
-{
-    if (!Validator::string($_POST['name'], 3, 20)) {
-
-        $errors['product_name'] = 'Name must be at least 3 chars and not more than 20 chars';
-    }
-
-    if (!Validator::string($_POST['category'], 1)) {
-        $errors ['category'] = 'Must select a sub-category';
-    }
-
-    if (!Validator::string($_POST['price'], 1)) {
-        $errors ['price'] = 'A price is Required';
-    }
-
-    if (!Validator::string($_POST['description'], 10, 30)) {
-        $errors ['description'] = 'A product description is required, not less than 10 letter or more than 30 letters';
-    }
-
-    if (!Validator::string($_POST['status'])) {
-        $errors ['status'] = 'A status is required';
-    }
-    return $errors;
-}
-
-/**
- * Handle file upload
- * @param mixed $image
- * @return string
- * @throws Exception
- */
-function handleFileUpload(mixed $image): string
-{
-    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-
-    if (!in_array($image['type'], $allowed_types)) {
-        throw new Exception('Sorry, File format Not supported');
-    }
-
-    $upload_dir = 'uploads/';
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0777, true);
-    }
-
-    $file_extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-    $file_path = $upload_dir . uniqid() . '.' . $file_extension;
-
-    if (!move_uploaded_file($image['tmp_name'], $file_path)) {
-        throw new Exception('Failed to move uploaded file');
-    }
-    return $file_path;
-}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -102,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $image = $_FILES['image'];
 
         try {
+
+            /* if file upload successful get the file path*/
 
             $file_path = handleFileUpload($image);
 
