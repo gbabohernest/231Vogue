@@ -3,8 +3,6 @@
 view('partials/head.php');
 $sub_categories = require base_path('app/controllers/admin-controllers/product/get_sub-categories.php');
 ?>
-<
-
 
 <section class="admin">
     <!-- Admin Navigation Here-->
@@ -94,7 +92,7 @@ $sub_categories = require base_path('app/controllers/admin-controllers/product/g
                         <div class="form-group">
                             <label for="image">Product Image</label>
                             <input type="file" id="image" name="image" placeholder="product image" accept="image/*"
-                                   alt="product image required">
+                                   alt="product image" required>
                         </div>
 
                         <button type="submit" class="submit-product-btn create-product-btn"> Add Product</button>
