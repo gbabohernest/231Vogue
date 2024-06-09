@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
 
         } catch (Exception $e) {
-            echo "<script>alert('Error, something went wrong!!!!')</script>" . $e->getMessage();
+            echo "<script>alert('Error, something went wrong, Data NOT INSERTED!!!!')</script>" . $e->getMessage();
         }
 
     }
