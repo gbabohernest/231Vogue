@@ -1,47 +1,109 @@
+<?php
 
-<section class="modal create-modal"  data-modal-type="product">
-    <div class="modal-content">
-        <span class="close-modal-btn"><i class="fa-solid fa-xmark"></i></span>
+view('partials/head.php');
+$sub_categories = require base_path('app/controllers/admin-controllers/product/get_sub-categories.php');
+?>
+<
 
-        <form action="" >
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Product name">
-            </div>
 
-            <div class="form-group">
-                <label for="category">Sub-category</label>
-                <select name="category" id="category">
-                    <!-- dynamically load category from db -->
-             <option value="dresses">Dresses</option>
-                    <option value="heals">Heels</option>
-                </select>
-            </div>
+<section class="admin">
+    <!-- Admin Navigation Here-->
+    <?php view('partials/admin-partials/nav.php') ?>
 
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" id="price" name="price" placeholder="price">
-            </div>
+    <main class="admin__container">
+        <!-- Sidebar Navigation Here -->
+        <?php view('partials/admin-partials/sidebar.php'); ?>
+        <div class="admin__container--main-content">
 
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" placeholder="What product is it?"></textarea>
-            </div>
+            <section class="modal">
+                <div class="modal-content">
+                    <a href="/dashboard/products">
 
-            <div class="form-group">
-                <label for="status">Status</label>
-                <select name="status" id="status">
-                    <option value="active">Active</option>
-                    <option value="disabled">Disabled</option>
-                </select>
-            </div>
+                        <span class="close-modal-btn"><i class="fa-solid fa-xmark"></i></span>
+                    </a>
 
-            <div class="form-group">
-                <label for="image">Product Image</label>
-                <input type="file" id="image" name="image" placeholder="product image">
-            </div>
 
-            <button type="submit" class="submit-product-btn create-product-btn"> Add Product</button>
-        </form>
-    </div>
+                    <form action="/product" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name"
+                                   value="<?= htmlspecialchars($_POST['name'] ?? ''); ?>"
+
+                                   placeholder="Product name">
+
+                            <?php if (isset($errors['product_name'])): ?>
+                                <span class="error"><?= $errors['product_name'] ?></span>
+
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Sub-category</label>
+                            <select name="category" id="category">
+                                <!-- dynamically load category from db -->
+                                <option value="">select a sub-category</option>
+                                <?php foreach ($sub_categories as $sub_category) : ?>
+                                    <option value="<?= $sub_category['sub_category_id'] ?>"
+                                        <?= ($sub_category['sub_category_id'] == $selected_category) ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($sub_category['sub_category_name']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" id="price" name="price"
+                                   value="<?= htmlspecialchars($_POST['price'] ?? ''); ?> " placeholder="price">
+
+                            <?php if (isset($errors['price'])): ?>
+                                <span class="error"><?= $errors['price'] ?></span>
+
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description"
+                                      placeholder="What product is it?" <?= htmlspecialchars($_POST['description']); ?>></textarea>
+                            <?php if (isset($errors['description'])): ?>
+                                <span class="error"><?= $errors['description'] ?></span>
+
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select name="status" id="status">
+                                <option value="">select a status</option>
+                                <option value="active" <?= (isset($_POST['status']) && $_POST['status'] == 'active') ? 'selected' : '' ?>>
+                                    Active
+                                </option>
+                                <option value="disable" <?= (isset($_POST['status']) && $_POST['status'] == 'disable') ? 'selected' : '' ?>>
+                                    Disabled
+                                </option>
+                            </select>
+                            <?php if (isset($errors['status'])): ?>
+                                <span class="error"><?= $errors['status'] ?></span>
+
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Product Image</label>
+                            <input type="file" id="image" name="image" placeholder="product image" accept="image/*"
+                                   alt="product image required">
+                        </div>
+
+                        <button type="submit" class="submit-product-btn create-product-btn"> Add Product</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
 </section>
+
+
