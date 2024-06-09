@@ -1,7 +1,7 @@
 <?php
 
 view('partials/head.php');
-$sub_categories = require base_path('app/controllers/admin-controllers/product/get_sub-categories.php');
+$sub_categories = require base_path('app/controllers/admin-controllers/functions/get_sub-categories.php');
 ?>
 
 <section class="admin">
