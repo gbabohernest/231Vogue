@@ -17,8 +17,8 @@ function validateCategoryData(array $data): array
     }
 
 
-    if (!Validator::string($data['description'], 10, 40)) {
-        $errors ['description'] = 'A category description is required, not less than 10 letter or more than 30 letters';
+    if (!Validator::string($data['description'], 10, 100)) {
+        $errors ['description'] = 'A category description is required, not less than 10 letter or more than 40 letters';
     }
 
     if (!Validator::string($data['status'])) {
