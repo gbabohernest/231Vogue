@@ -8,19 +8,19 @@ $db = new Database($config['database'], [
 ]);
 
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    try {
-        $db->query('delete from products where product_id = :id', [
-            'id' => $_POST['id']
-        ]);
+    if ($_POST['id'] && is_numeric($_POST['id']) !== null) {
+        try {
+            $db->query('delete from products where product_id = :id', [
+                'id' => $_POST['id']
+            ]);
 
-        header('Location: /dashboard/products');
-        exit();
+            header('Location: /dashboard/products');
+            exit();
 
-    } catch (Exception $e) {
-        echo "Sorry, Unable to delete the record" . $e->getMessage();
+        } catch (Exception $e) {
+            echo "Sorry, Unable to delete the record" . $e->getMessage();
+        }
     }
-
 }
