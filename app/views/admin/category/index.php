@@ -20,11 +20,12 @@
                 <div class="section-header">
                     <h2>Categories list</h2>
                     <div class="section-actions">
-                        <button class="filter-btn"><i class="fa-solid fa-filter"></i>Filter</button>
-                        <button class="see-all-btn">See All</button>
-                        <button class="add-record-btn" data-modal-type="category"><i class="fa-solid fa-plus"></i>Add
-                            Category
-                        </button>
+                        <a href="/category/create">
+                            <button class="add-record-btn" ><i class="fa-solid fa-plus"></i>Add
+                                Category
+                            </button>
+                        </a>
+
                     </div>
                 </div>
 
@@ -54,14 +55,23 @@
                                 <?php endif; ?>
                             </td>
                             <td class="center-td">
-                                <button class="edit-btn" data-modal-type="category">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                    Edit
-                                </button>
-                                <button class="delete-btn" data-modal-type="category">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    Delete
-                                </button>
+                                <a href="/category/edit?category_id=<?=$category['category_id']?>">
+                                    <button class="edit-btn" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        Edit
+                                    </button>
+                                </a>
+
+
+                                <form action="/category" method="POST" class="action-btn-admin">
+                                    <input type="hidden" name="__request_method" value="DELETE">
+                                    <input type="hidden" name="id" value="<?=$category['category_id']?>">
+
+                                    <button class="delete-btn">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -77,11 +87,6 @@
                 </div>
             </section>
 
-            <!-- A model for creating category -->
-            <?php view('admin/category/create.view.php'); ?>
-
-            <!-- A model for editing category -->
-            <?php view('admin/category/edit.view.php'); ?>
         </main>
 
 
