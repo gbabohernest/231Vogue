@@ -52,14 +52,12 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select name="status" id="status">
-
-                                <?php
-                                $selected_status = $_SESSION['form_data']['status'] ?? ($category['is_active'] ?? '');
-                                ?>
-                                <option value="active" <?php echo ($selected_status === 'active' || $selected_status == 1) ? 'selected' : ''; ?>>
+                                <option value="">select a status</option>
+                                <option value="active" <?= ($category['is_active'] == 1 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'active')) ? 'selected' : '' ?>>
                                     Active
                                 </option>
-                                <option value="disabled" <?php echo ($selected_status === 'disabled' || $selected_status == 0) ? 'selected' : ''; ?>>
+
+                                <option value="disabled" <?= ($category['is_active'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'disabled')) ?? 'selected' ?>>
                                     Disabled
                                 </option>
 
@@ -82,4 +80,3 @@
 
 
 </section>
-
