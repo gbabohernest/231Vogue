@@ -21,11 +21,13 @@
                 <div class="section-header">
                     <h2>Products list</h2>
                     <div class="section-actions">
-                        <button class="filter-btn"><i class="fa-solid fa-filter"></i>Filter</button>
-                        <button class="see-all-btn">See All</button>
-                        <button class="add-record-btn" data-modal-type="product"><i class="fa-solid fa-plus"></i>Add
-                            Product
-                        </button>
+                        <a href="/product/create">
+                            <button class="add-record-btn" data-modal-type="product"><i class="fa-solid fa-plus"></i>
+                                Add
+                                Product
+                            </button>
+
+                        </a>
                     </div>
                 </div>
 
@@ -35,8 +37,8 @@
                 <table class="record-table">
                     <thead>
                     <tr>
-                        <th>Product Image</th>
-                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Name</th>
                         <th>Sub-category</th>
                         <th>Price</th>
                         <th>Description</th>
@@ -52,22 +54,31 @@
                     <?php foreach ($products as $product) : ?>
 
                         <tr>
-                            <td><?= $product['image'] ?? 'No image Now' ?></td>
+                            <td><img src="/<?php echo (htmlspecialchars($product['image_path'])); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>"  style="max-width:200px;"></td>
                             <td><?= $product['product_name'] ?></td>
                             <td><?= $product['sub_category_name'] ?></td>
 
                             <td><?= $product['price'] ?></td>
                             <td><?= $product['description'] ?></td>
-                            <td> <?= $product['status'] ? 'Active' : 'Not Active'; ?></td>
+                            <td> <?= $product['status'] ? "<span class='active-column'>Active</span>" : "<span class='not-active-colum'>Not Active</span>"; ?></td>
                             <td class="center-td">
-                                <button class="edit-btn" data-modal-type="product">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                    Edit
-                                </button>
-                                <button class="delete-btn" data-modal-type="product">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    Delete
-                                </button>
+                                <a href="/product/edit?product_id=<?= $product['product_id'] ?>">
+                                    <button class="edit-btn">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        Edit
+                                    </button>
+                                </a>
+
+
+                                <form action="/product" method="POST" class="action-btn-admin">
+                                    <input type="hidden" name="__request_method" value="DELETE">
+                                    <input type="hidden" name="id" value="<?= $product['product_id'] ?>">
+
+                                    <button class="delete-btn">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Delete
+                                    </button>
+                                </form>
                             </td>
                             <td><?= date('j-M-Y, H:i', $products['created_at']); ?></td>
                         </tr>
@@ -84,11 +95,6 @@
                 </div>
             </section>
 
-            <!-- A model for creating product -->
-            <?php view('admin/product/create.view.php'); ?>
-
-            <!-- A model for editing product -->
-            <?php view('admin/product/edit.view.php'); ?>
         </main>
 
 
