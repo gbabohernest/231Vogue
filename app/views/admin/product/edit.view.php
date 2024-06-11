@@ -97,16 +97,15 @@ $sub_categories = require base_path('app/controllers/admin-controllers/functions
                             <select name="status" id="status">
                                 <option value="">select a status</option>
 
-                                <?php
-                                $selected_status = $_SESSION['form_data']['status'] ?? ($product['status'] ?? '');
-                                ?>
-                                <option value="active" <?php echo ($selected_status === 'active' || $selected_status == 1) ? 'selected' : ''; ?>>
-                                    Active
-                                </option>
-                                <option value="disabled" <?php echo ($selected_status === 'disabled' || $selected_status == 0) ? 'selected' : ''; ?>>
-                                    Disabled
+                                <option value="active"
+                                    <?= ($product['status'] == 1 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'active')) ? 'selected' : '' ?>
+                                >Active
                                 </option>
 
+                                <option value="disabled"
+                                    <?= ($product['status'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'disabled')) ?? 'selected' ?>
+                                >Disabled
+                                </option>
 
                             </select>
                             <?php if (isset($errors['status'])): ?>
