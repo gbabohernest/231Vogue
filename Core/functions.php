@@ -50,6 +50,17 @@ function adminFunctions(string $path): void
 }
 
 /**
+ * Require the utility function of a given path
+ * @param string $path - path to the utility functions
+ * @return void
+ */
+function appUtilities(string $path): void
+{
+
+    require base_path('app/utilities/' . $path);
+}
+
+/**
  * Checks if the current URL is the given URL path.
  * @param string $urlPath
  * @return bool
