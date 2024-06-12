@@ -1,7 +1,7 @@
 <section class="banner">
 
     <div class="banner__container">
-        <header class="banner__container-header">
+        <div class="banner__container-header">
             <div class="banner__container-header--text">
                 <h2>
                     <span class="pop">makeover</span>
@@ -20,7 +20,7 @@
                 <a href="#">Shop now</a>
             </div>
 
-        </header>
+        </div>
 
         <div class="banner__container__slide-show-wrapper">
 
@@ -54,3 +54,4 @@
     </div>
 
 </section>
+<script src="/assets/js/banner.js"></script>
