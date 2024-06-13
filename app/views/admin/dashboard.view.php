@@ -1,14 +1,14 @@
-<?php require view('partials/head.php'); ?>
+<?php view('partials/head.php'); ?>
 
 
 <section class="admin">
 
     <!-- Admin Navigation Here-->
-    <?php require view('partials/admin-partials/nav.php')?>
+    <?php view('partials/admin-partials/nav.php')?>
 
     <div class="admin__container">
         <!-- Sidebar Navigation Here -->
-        <?php require view('partials/admin-partials/sidebar.php');?>
+        <?php view('partials/admin-partials/sidebar.php');?>
 
 
         <main class="admin__container--main-content">
@@ -40,8 +40,4 @@
     </div>
 </section>
 
-<?php require view('partials/admin-partials/layouts/footer.php')?>
-
-
-
-
+<?php view('partials/admin-partials/layouts/footer.php')?>
