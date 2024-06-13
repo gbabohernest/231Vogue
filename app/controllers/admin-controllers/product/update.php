@@ -1,14 +1,10 @@
 <?php
 
+use app\CRUDInputsValidations\ValidateInputs;
+
 use Core\Database;
 
-adminFunctions('validateProductData.php');
-adminFunctions('handleFileUpload.php');
-
-
 $config = require base_path('config.php');
-
-
 $db = new Database($config['database'], [
     'password' => DB_PASSWORD
 ]);
@@ -18,17 +14,12 @@ $selected_category = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    dd($_POST);
-
-    $status = $_POST['status'];
-    $status_value = ($status === 'active') ? 1 : 0;
 
     $selected_category = $_POST['category'];
 
     $product_id = $_POST['id'];
 
-    $errors = validateProductData($errors);
-
+    $errors = ValidateInputs::validateProductData($errors);
 
     if (!empty($errors)) {
 
@@ -41,13 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $image_path = $_POST['current_image_path'];
+    $status_value = ValidateInputs::convertStatusToBool($_POST['status']);
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $image = $_FILES['image'];
 
         try {
 
-            $image_path = handleFileUpload($image);
+            $file_path = ValidateInputs::validateImgUpload($image);
 
             // delete the old image file if it is different from the updated
             if ($_POST['current_image_path'] && file_exists($_POST['current_image_path'])) {

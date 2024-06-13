@@ -1,15 +1,13 @@
 <?php
 
-adminFunctions('validateProductData.php');
-adminFunctions('handleFileUpload.php');
-
+use app\CRUDInputsValidations\ValidateInputs;
 use Core\Database;
-
 
 $config = require base_path('config.php');
 $db = new Database($config['database'], [
     'password' => DB_PASSWORD
 ]);
+
 
 $errors = [];
 $selected_category = '';
@@ -20,14 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $selected_category = $_POST['category'];
 
-    /**
-     * Validate product data.
-     *
-     * @param array $data
-     * @return array
-     */
-
-    $errors = validateProductData($errors);
+    $errors = ValidateInputs::validateProductData($errors);
 
 
     if (!empty($errors)) {
@@ -40,16 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($selected_category) && is_numeric($selected_category)) {
 
-        $status = $_POST['status'];
-        $status_value = ($status === 'active') ? 1 : 0;
-
+        $status_value = ValidateInputs::convertStatusToBool($_POST['status']);
         $image = $_FILES['image'];
 
         try {
 
             /* if file upload successful get the file path*/
 
-            $file_path = handleFileUpload($image);
+            $file_path = ValidateInputs::validateImgUpload($image);
 
         } catch (Exception $e) {
 
