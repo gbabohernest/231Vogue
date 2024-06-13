@@ -1,28 +1,16 @@
 <?php
 
-use Core\Database;
+use app\CRUDInputsValidations\ValidateInputs;
 
-adminFunctions('validateCategoriesData.php');
-
-
-$config = require base_path('config.php');
-
-
-$db = new Database($config['database'], [
-    'password' => DB_PASSWORD
-]);
+require_once appUtilities('dbCon.php');
 
 
 $errors = [];
 
-//dd ($_POST);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $category_id = $_POST['id'];
-    $status = $_POST['status'];
-    $status_value = ($status === 'active') ? 1 : 0;
-
-    $errors = validateCategoryData($_POST);
+    $errors = ValidateInputs::validateCategoryInputs($_POST);
 
     if (!empty($errors)) {
 
@@ -32,6 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'errors' => $errors,
         ]);
     }
+
+    $category_id = $_POST['id'];
+    $status_value = ValidateInputs::convertStatusToBool($_POST['status']);
+    unset ($_SESSION['form_data']);
 
 
     try {

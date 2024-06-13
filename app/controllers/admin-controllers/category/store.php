@@ -1,14 +1,8 @@
 <?php
 
-adminFunctions('validateCategoriesData.php');
+use app\CRUDInputsValidations\ValidateInputs;
 
-use Core\Database;
-
-
-$config = require base_path('config.php');
-$db = new Database($config['database'], [
-    'password' => DB_PASSWORD
-]);
+require_once appUtilities('dbCon.php');
 
 
 $errors = [];
@@ -16,15 +10,7 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-//    dd($_POST);
-    /**
-     * Validate product data.
-     *
-     * @param array $data
-     * @return array
-     */
-
-    $errors = validateCategoryData($_POST);
+    $errors = ValidateInputs::validateCategoryInputs($_POST);
 
     if (!empty($errors)) {
         return view('admin/category/create.view.php', [
@@ -33,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    $status = $_POST['status'];
-    $status_value = ($status === 'active') ? 1 : 0;
+    $status_value = ValidateInputs::convertStatusToBool($_POST['status']);
 
     try {
         $db->query('INSERT INTO  categories (category_name, description, is_active) VALUES (:name, :description, :status)', [
