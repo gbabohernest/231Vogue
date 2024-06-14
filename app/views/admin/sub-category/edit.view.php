@@ -1,6 +1,5 @@
 <?php view('partials/head.php');
-$categories = require base_path('app/controllers/admin-controllers/functions/get_categories.php');
-
+$categories = require appUtilities('getCategories.php');
 ?>
 
 
@@ -87,18 +86,15 @@ $categories = require base_path('app/controllers/admin-controllers/functions/get
                             <label for="status">Status</label>
                             <select name="status" id="status">
                                 <option value="">select status</option>
-
                                 <option value="active"
-                                    <?= ($sub_category['is_active'] == 1 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'active')) ? 'selected' : '' ?>>
-                                    Active
+                                    <?= ($sub_category['is_active'] == 1 || $_SESSION['form_data']['status'] == 'active') ? 'selected' : '' ?>
+                                >Active
                                 </option>
 
-                                <option value="disabled"
-                                    <?= ($sub_category['is_active'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'disabled')) ?? 'selected' ?>
-                                >Disabled
+                                <option value="not active"
+                                    <?= ($sub_category['is_active'] == 0 || $_SESSION['form_data']['status'] == 'not active') ? 'selected' : '' ?>
+                                >Not Active
                                 </option>
-
-
                             </select>
 
                             <?php if (isset($errors['status'])): ?>

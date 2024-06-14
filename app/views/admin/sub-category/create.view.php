@@ -1,6 +1,5 @@
 <?php view('partials/head.php');
-$categories = require base_path('app/controllers/admin-controllers/functions/get_categories.php');
-
+$categories = require appUtilities('getCategories.php');
 ?>
 
 <section class="admin">
@@ -73,8 +72,8 @@ $categories = require base_path('app/controllers/admin-controllers/functions/get
                                 <option value="active" <?= (isset($_POST['status']) && $_POST['status'] == 'active') ? 'selected' : '' ?>>
                                     Active
                                 </option>
-                                <option value="disable" <?= (isset($_POST['status']) && $_POST['status'] == 'disable') ? 'selected' : '' ?>>
-                                    Disabled
+                                <option value="not active" <?= (isset($_POST['status']) && $_POST['status'] == 'not active') ? 'selected' : '' ?>>
+                                    Not Active
                                 </option>
                             </select>
                             <?php if (isset($errors['status'])): ?>
