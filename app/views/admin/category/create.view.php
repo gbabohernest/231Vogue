@@ -52,8 +52,8 @@
                                 <option value="active" <?= (isset($_POST['status']) && $_POST['status'] == 'active') ? 'selected' : '' ?>>
                                     Active
                                 </option>
-                                <option value="disable" <?= (isset($_POST['status']) && $_POST['status'] == 'disable') ? 'selected' : '' ?>>
-                                    Disabled
+                                <option value="not active" <?= (isset($_POST['status']) && $_POST['status'] == 'not active') ? 'selected' : '' ?>>
+                                    Not Active
                                 </option>
                             </select>
                             <?php if (isset($errors['status'])): ?>

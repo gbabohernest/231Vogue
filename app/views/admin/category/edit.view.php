@@ -57,8 +57,8 @@
                                     Active
                                 </option>
 
-                                <option value="disabled" <?= ($category['is_active'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'disabled')) ?? 'selected' ?>>
-                                    Disabled
+                                <option value="not active" <?= ($category['is_active'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'not active')) ?? 'selected' ?>>
+                                    Not Active
                                 </option>
 
                             </select>
