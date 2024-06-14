@@ -94,6 +94,15 @@ class ValidateInputs
         return $errors;
     }
 
+    public static function validateUserSession(array $data): array {
+        $errors = [];
+
+        self::validateEmail($data['email'], $errors);
+        self::validatePassword($data['password'], $errors);
+
+        return $errors;
+    }
+
     private static function validateStringLength(string $string, int $min, int $max, string $field, string $message, array &$errors): void
     {
         if (!Validator::string($string, $min, $max)) {
