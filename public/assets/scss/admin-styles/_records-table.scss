@@ -52,6 +52,27 @@
           td {
             font-size: u.rem(12);
             color: var(--dark-gray-color);
+
+            img {
+              width: 60px;
+              object-fit: cover;
+            }
+
+            .active-column,
+            .not-active-column {
+              padding: u.rem(3) u.rem(7);
+              border-radius: u.rem(5);
+              text-align: center;
+            }
+            .active-column {
+              background: lightgreen;
+              color: var(--secondary-color);
+            }
+
+            .not-active-column {
+              background: lightcoral;
+              color: var(--white-smoke);
+            }
           }
 
           th {
@@ -67,9 +88,14 @@
             gap: u.rem(10);
 
             .record-image {
-              @extend %mobile-img-style;
+              //@extend %mobile-img-style;
+
             }
           }
+          .action-btn-admin {
+            display: inline;
+          }
+
 
         }
 

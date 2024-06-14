@@ -1,7 +1,7 @@
 @use '../utils' as u;
 
 .modal {
-  display: none;
+  //display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -17,13 +17,13 @@
   &-content {
     background-color: var(--white-smoke);
     padding: u.rem(32);
-    border: 1px solid var(--gray-color);
-    width: 80%;
+    //border: 1px solid var(--gray-color);
+    width: 90%;
     margin: 5% auto;
-    max-width: 600px;
+    max-width: 700px;
     position: absolute;
-    top: 35px;
-    left: 53%;
+    top: 5px;
+    left: 55%;
     transform: translateX(-50%);
 
     .close-modal-btn {
