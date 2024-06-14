@@ -1,7 +1,7 @@
 <?php
 
 view('partials/head.php');
-$sub_categories = require base_path('app/controllers/admin-controllers/functions/get_sub-categories.php');
+$sub_categories = require appUtilities('getSubCategories.php');
 ?>
 
 <section class="admin">
@@ -47,6 +47,10 @@ $sub_categories = require base_path('app/controllers/admin-controllers/functions
                                     </option>
                                 <?php endforeach; ?>
                             </select>
+                            <?php if (isset($errors['category'])): ?>
+                                <span class="error"><?= $errors['category'] ?></span>
+
+                            <?php endif; ?>
 
                         </div>
 
@@ -79,8 +83,8 @@ $sub_categories = require base_path('app/controllers/admin-controllers/functions
                                 <option value="active" <?= (isset($_POST['status']) && $_POST['status'] == 'active') ? 'selected' : '' ?>>
                                     Active
                                 </option>
-                                <option value="disable" <?= (isset($_POST['status']) && $_POST['status'] == 'disable') ? 'selected' : '' ?>>
-                                    Disabled
+                                <option value="not active" <?= (isset($_POST['status']) && $_POST['status'] == 'not active') ? 'selected' : '' ?>>
+                                    Not Active
                                 </option>
                             </select>
                             <?php if (isset($errors['status'])): ?>

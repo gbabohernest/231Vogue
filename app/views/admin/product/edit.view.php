@@ -1,7 +1,7 @@
 <?php
 
 view('partials/head.php');
-$sub_categories = require base_path('app/controllers/admin-controllers/functions/get_sub-categories.php');
+$sub_categories = require appUtilities('getSubCategories.php');
 ?>
 
 
@@ -102,9 +102,9 @@ $sub_categories = require base_path('app/controllers/admin-controllers/functions
                                 >Active
                                 </option>
 
-                                <option value="disabled"
-                                    <?= ($product['status'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'disabled')) ?? 'selected' ?>
-                                >Disabled
+                                <option value="not active"
+                                    <?= ($product['status'] == 0 || (isset($_SESSION['form_data']['status']) && $_SESSION['form_data']['status'] == 'not active')) ?? 'selected' ?>
+                                >Not Active
                                 </option>
 
                             </select>

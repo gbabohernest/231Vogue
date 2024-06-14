@@ -60,7 +60,7 @@
 
                             <td><?= $product['price'] ?></td>
                             <td><?= $product['description'] ?></td>
-                            <td> <?= $product['status'] ? "<span class='active-column'>Active</span>" : "<span class='not-active-colum'>Not Active</span>"; ?></td>
+                            <td> <?= $product['status'] ? "<span class='active-column'>Active</span>" : "<span class='not-active-column'>Not Active</span>"; ?></td>
                             <td class="center-td">
                                 <a href="/product/edit?product_id=<?= $product['product_id'] ?>">
                                     <button class="edit-btn">
