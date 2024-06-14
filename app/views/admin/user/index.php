@@ -50,7 +50,7 @@
                             <td><?= $user['email'] ?></td>
                             <td><?= $user['is_admin'] ? "<span class='admin-column'>Admin</span>" : "<span class='user-column'>User</span>" ?></td>
                             <td class="center-td">
-                                <a href="/user/edit?user_id=<?=$user['user_id']?>">
+                                <a href="/user/edit?user_id=<?= $user['user_id'] ?>">
 
                                     <button class="edit-btn">
                                         <i class="fa-solid fa-pen-to-square"></i>
@@ -59,10 +59,9 @@
                                 </a>
 
 
-
                                 <form action="/user" method="POST" class="action-btn-admin">
                                     <input type="hidden" name="__request_method" value="DELETE">
-                                    <input type="hidden" name="id" value="<?=$user['user_id']?>">
+                                    <input type="hidden" name="id" value="<?= $user['user_id'] ?>">
 
 
                                     <button class="delete-btn" data-modal-type="user">

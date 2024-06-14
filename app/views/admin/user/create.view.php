@@ -67,8 +67,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="is_admin">Is Admin</label>
-                            <select name="is_admin" id="is_admin" required>
+                            <label for="role">Role</label>
+                            <select name="is_admin" id="role" required>
                                 <option value="">Select User Status</option>
                                 <option value="user">User</option>
                                 <option value="admin">Admin</option>
