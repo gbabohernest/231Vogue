@@ -94,11 +94,31 @@ class ValidateInputs
         return $errors;
     }
 
-    public static function validateUserSession(array $data): array {
+    public static function validateUserSession(array $data): array
+    {
         $errors = [];
 
         self::validateEmail($data['email'], $errors);
         self::validatePassword($data['password'], $errors);
+
+        return $errors;
+    }
+
+    public static function validateCustomerProfileBasicDetailsEdit(array $data): array
+    {
+        $errors = [];
+
+        self::validateStringLength($data['first_name'], 3, 20, 'first_name', 'Name is required, not less then 5 or more than 20 characters', $errors);
+        self::validateStringLength($data['last_name'], 3, 20, 'last_name', 'Name is required, not less then 5 or more than 20 characters', $errors);
+
+        return $errors;
+    }
+
+    public static function validateCustomerEmail(array $data): array
+    {
+        $errors = [];
+
+        self::validateEmail($data['email'], $errors);
 
         return $errors;
     }
