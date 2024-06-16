@@ -1,42 +1,28 @@
 <?php
 
 require appUtilities('dbCon.php');
+require_once appUtilities('getUser.php');
 
 $categories = require_once appUtilities('getCategories.php');
 $sub_categories = require_once appUtilities('getSubCategories.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+$user = handleRequest('GET', 'getUser', $_SESSION, $db);
 
-    if (!isset($_SESSION['user']['user_id'])) {
 
-        header('Location: /');
-        exit();
-    }
+if ($user) {
 
-    $user_id = $_SESSION['user']['user_id'];
-    $user = [];
+    view('partials/head.php');
 
-    try {
-        $user = $db->query('SELECT * FROM users where user_id = :user_id', [
-            'user_id' => $user_id
-        ])->find();
 
-    } catch (Exception $e) {
-        echo 'Sorry, Failed to process your request' . $e->getMessage();
-    }
+    view('partials/nav.php', [
+        'categories' => $categories,
+        'sub_categories' => $sub_categories
+    ]);
+
+    view('user/index.view.php', [
+        'user' => $user
+    ]);
+
+    view('partials/footer.php');
 }
 
-
-view('partials/head.php');
-
-
-view('partials/nav.php', [
-    'categories' => $categories,
-    'sub_categories' => $sub_categories
-]);
-
-view('user/index.view.php', [
-    'user' => $user
-]);
-
-view('partials/footer.php');
