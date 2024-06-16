@@ -38,26 +38,32 @@ function view(string $path, array $attributes = []): void
 }
 
 /**
- * Require a reusable admin function
- * @param string $path - path to admin reusable functions
+ * Higher-order function to handle request method check and callback execution.
+ *
  * @return void
  */
-
-function adminFunctions(string $path): void
+function handleRequest(string $method, callable $callback, array $data, $db)
 {
-
-    require base_path('app/controllers/admin-controllers/functions/' . $path);
+    if ($_SERVER['REQUEST_METHOD'] === $method) {
+        try {
+            return $callback($data, $db);
+        } catch (Exception $e) {
+            echo "Error, Something went wrong!!" . $e->getMessage();
+            return null;
+        }
+    }
+    return null;
 }
 
 /**
  * Require the utility function of a given path
  * @param string $path - path to the utility functions
- * @return void
+ * @return string - the full path to the file
  */
-function appUtilities(string $path): void
+function appUtilities(string $path): string
 {
 
-    require base_path('app/utilities/' . $path);
+    return base_path('app/utilities/' . $path);
 }
 
 /**
@@ -81,6 +87,7 @@ function logUserIn(array $user): void
     $_SESSION['user'] = [
         'name' => htmlspecialchars($user['first_name']),
         'is_admin' => $user['is_admin'] ?? false,
+        'user_id' => $user['user_id']
     ];
 
     if ($user['is_admin']) {
