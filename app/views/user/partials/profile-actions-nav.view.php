@@ -10,7 +10,7 @@
             <td class="td-basic-details"><i class="fa-solid fa-user"></i><span>Profile Details</span>
             </td>
             <td class="chevron-icon">
-                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right chevron profile-chevron"></i>
             </td>
         </tr>
 
@@ -40,7 +40,7 @@
                     <i class="fa-solid fa-lock"></i><span>Security Settings</span></td>
 
                 <td class="chevron-icon">
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <i class="fa-solid fa-chevron-right chevron security-chevron"></i>
                 </td>
             </tr>
             </thead>
@@ -48,7 +48,7 @@
             <tr>
                 <td class="td-basic-details">
                     <div>
-                        <a href="#">Change Password</a>
+                        <a href="/change-password/show">Change Password</a>
                     </div>
                     <div>
                         <a href="#" class="delete-acc">Delete Account</a>
