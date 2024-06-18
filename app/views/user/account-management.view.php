@@ -50,7 +50,7 @@ view('partials/head.php');
                     <tr>
                         <td>
                             <div>
-                                <a href="#">Change Password</a>
+                                <a href="/change-password/show">Change Password</a>
                             </div>
                             <div>
                                 <a href="#" class="delete-acc">Delete Account</a>

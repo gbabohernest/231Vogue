@@ -62,7 +62,7 @@
                                 <span>Name:</span> <?= htmlspecialchars($user['first_name']) . ' ' . htmlspecialchars($user['last_name']) ?>
                             </h4>
                             <p>Email: <?= htmlspecialchars($user['email']) ?></p>
-                            <p>Joined Date: <?= date('j-M-Y, H:i', strtotime($user['created_at'])); ?></p>
+                            <p>Joined Date: <?= date('j-M-Y, H:i', $user['created_at']); ?></p>
                         </td>
 
                     </tr>
